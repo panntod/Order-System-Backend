@@ -9,7 +9,7 @@ route.post("/auth", authController.authentication);
 const adminController = require("../controllers/admin.controller");
 route.get("/get/getAll", authorization, adminController.getAllAdmin);
 route.get("/:id", authorization, adminController.findAdmin);
-route.post("/add", authorization, adminController.addAdmin);
+route.post("/", adminController.addAdmin);
 route.put("/:id", authorization, adminController.updateAdmin);
 route.delete("/:id", authorization, adminController.deleteadmin);
 
