@@ -15,7 +15,7 @@ CREATE TABLE `Admin` (
 CREATE TABLE `Food` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(191) NOT NULL,
-    `spicy_level` INTEGER NOT NULL,
+    `spicy_level` VARCHAR(191) NOT NULL,
     `price` DOUBLE NOT NULL,
     `image` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),

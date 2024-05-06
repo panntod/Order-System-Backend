@@ -28,7 +28,12 @@ exports.authentication = async (req, res) => {
     const token = GenerateToken(data);
     return res
       .status(200)
-      .json({ message: "Login successfully", data: { ...data, token: token } });
+      .json({
+        status: true,
+        logged: true,
+        message: "Login successfully",
+        data: { ...data, token: token },
+      });
   } catch (error) {
     console.error(error);
     return res

@@ -73,7 +73,7 @@ exports.deleteadmin = async (req, res) => {
       return res.status(404).json({ message: "admin not found", data: null });
     }
     await prisma.admin.delete({ where: { id } });
-    res.status(200).json({ message: "Success update data admin", data: null });
+    res.status(200).json({ message: "Success delete data admin", data: null });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error", data: null });

@@ -35,5 +35,6 @@ Base Url: `localhost:8000`
 | GET    | /getAll     |
 | GET    | /find/:id   |
 | POST   | /add        |
+| POST   | /auth      |
 | PUT    | /update/:id |
 | DELETE | /delete/:id |

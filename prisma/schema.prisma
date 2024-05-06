@@ -19,7 +19,7 @@ model Admin {
 model Food {
   id            Int            @id @default(autoincrement())
   name          String
-  spicy_level   Int
+  spicy_level   String
   price         Float
   image         String
   createdAt     DateTime       @default(now())
