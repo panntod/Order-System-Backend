@@ -16,9 +16,7 @@ exports.authentication = async (req, res) => {
       isExistingAdmin.password
     );
     if (!isValidPassword)
-      return res
-        .status(404)
-        .json({ message: "Incorrect Password" });
+      return res.status(404).json({ message: "Incorrect Password" });
     const data = {
       id: isExistingAdmin.id,
       email: isExistingAdmin.email,
@@ -26,18 +24,14 @@ exports.authentication = async (req, res) => {
       updatedAt: isExistingAdmin.updatedAt,
     };
     const token = GenerateToken(data);
-    return res
-      .status(200)
-      .json({
-        status: true,
-        logged: true,
-        message: "Login success",
-        data: { ...data, token: token },
-      });
+    return res.status(200).json({
+      status: true,
+      logged: true,
+      message: "Login success",
+      token: token,
+    });
   } catch (error) {
     console.error(error);
-    return res
-      .status(500)
-      .json({ message: "Something went wrong" });
+    return res.status(500).json({ message: "Something went wrong" });
   }
 };

@@ -33,6 +33,7 @@ exports.addOrder = async (req, res) => {
       .status(201)
       .json({ status: true, data: data, message: "Order List has created" });
   } catch (error) {
+    console.error(error)
     res.status(500).json({ error: "Internal server error" });
   }
 };
