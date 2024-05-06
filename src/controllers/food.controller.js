@@ -45,7 +45,7 @@ exports.findFood = async (req, res) => {
         .json({ success: false, message: "Data Food not found", data: null });
 
     return res.status(200).json({
-      success: false,
+      success: true,
       data: dataFood,
       message: "Food has retrieved",
     });
