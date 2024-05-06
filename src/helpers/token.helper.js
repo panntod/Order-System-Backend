@@ -12,7 +12,7 @@ exports.ExtractToken = (token) => {
     return decodedToken;
   } catch (error) {
     if (error instanceof jwt.TokenExpiredError) {
-      return { message: "Your token has expired, please log in again" };
+      return { message: "Your token has been expired, please log in again" };
     }
     return null;
   }

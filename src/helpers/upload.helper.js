@@ -26,14 +26,14 @@ const upload = multer({
     const acceptedType = ["image/jpg", "image/jpeg", "image/png"];
     if (!acceptedType.includes(file.mimetype)) {
       cb(null, false);
-      return cb(`Tidak menerima tipe file (${file.mimetype})`);
+      return cb(`Type file ${file.mimetype} not allowed`);
     }
 
     const fileSize = req.headers["content-length"];
     const maxSize = 1 * 1024 * 1024;
     if (fileSize > maxSize) {
       cb(null, false);
-      return cb(`Ukuran file terlalu besar`);
+      return cb(`File size is too large`);
     }
     cb(null, true);
   },
