@@ -8,10 +8,10 @@ const prisma = new PrismaClient();
 exports.getAllFood = async (_, res) => {
   try {
     const dataFood = await prisma.food.findMany();
-    res.status(200).json({ message: "Success load data Food", data: dataFood });
+    res.status(200).json({ success: true, message: "Success load data Food", data: dataFood });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal Server Error", data: null });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
@@ -51,17 +51,17 @@ exports.findFood = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal Server Error", data: null });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
 exports.addFood = async (req, res) => {
   try {
     upload(req, res, async (error) => {
-      if (error) return res.json({ message: error, data: null });
+      if (error) return res.json({ message: error });
 
       if (!req.file)
-        return res.json({ message: `Nothing to upload.`, data: null });
+        return res.json({ message: `Nothing to upload.` });
 
       const data = {
         name: req.body.name,
@@ -70,18 +70,21 @@ exports.addFood = async (req, res) => {
         image: req.file.filename,
       };
 
-      await prisma.food.create({ data: data });
-      res
-        .status(200)
-        .json({
-          status: true,
-          data: data,
-          message: "Food has created",
-        });
+      const result = await prisma.food.create({ data: data });
+      res.status(200).json({
+        status: true,
+        data: {
+          id: result.id,
+          ...data,
+          createdAt: result.createdAt,
+          updatedAt: result.updatedAt,
+        },
+        message: "Food has created",
+      });
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal Server Error", data: null });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
@@ -94,7 +97,7 @@ exports.updateFood = async (req, res) => {
       const existingFood = await prisma.food.findUnique({ where: { id: id } });
 
       if (!existingFood) {
-        return res.status(404).json({ message: "Food not found", data: null });
+        return res.status(404).json({ message: "Food not found" });
       }
 
       const data = {
@@ -116,12 +119,26 @@ exports.updateFood = async (req, res) => {
         data.image = req.file.filename;
       }
 
-      await prisma.food.update({ where: { id: id }, data: data });
-      res.status(200).json({ success: true, data: data, message: "Food has updated" });
+      const result = await prisma.food.update({
+        where: { id: id },
+        data: data,
+      });
+      res
+        .status(200)
+        .json({
+          success: true,
+          data: {
+            id: result.id,
+            ...data,
+            createdAt: result.createdAt,
+            updatedAt: result.updatedAt,
+          },
+          message: "Food has updated",
+        });
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal Server Error", data: null });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
@@ -130,7 +147,7 @@ exports.deleteFood = async (req, res) => {
     const id = parseInt(req.params.id);
     const existingFood = await prisma.food.findUnique({ where: { id } });
     if (!existingFood) {
-      return res.status(404).json({ message: "Food not found", data: null });
+      return res.status(404).json({ message: "Food not found" });
     }
     await prisma.food.delete({ where: { id } });
     const pathImages = path.join(__dirname, `../images`, existingFood?.image);
@@ -140,9 +157,11 @@ exports.deleteFood = async (req, res) => {
     } catch (error) {
       console.error(`Cannot delete images ${pathImages}.`, error);
     }
-    res.status(200).json({success: true, data: existingFood, message: "Food has deleted" });
+    res
+      .status(200)
+      .json({ success: true, data: existingFood, message: "Food has deleted" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal Server Error", data: null });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };

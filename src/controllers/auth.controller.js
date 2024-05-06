@@ -10,7 +10,7 @@ exports.authentication = async (req, res) => {
       where: { email: email },
     });
     if (!isExistingAdmin)
-      return res.status(404).json({ message: "Admin not found", data: null });
+      return res.status(404).json({ message: "Admin not found" });
     const isValidPassword = await PasswordCompare(
       password,
       isExistingAdmin.password
@@ -18,7 +18,7 @@ exports.authentication = async (req, res) => {
     if (!isValidPassword)
       return res
         .status(404)
-        .json({ message: "Incorrect Password", data: null });
+        .json({ message: "Incorrect Password" });
     const data = {
       id: isExistingAdmin.id,
       email: isExistingAdmin.email,
@@ -31,13 +31,13 @@ exports.authentication = async (req, res) => {
       .json({
         status: true,
         logged: true,
-        message: "Login successfully",
+        message: "Login success",
         data: { ...data, token: token },
       });
   } catch (error) {
     console.error(error);
     return res
       .status(500)
-      .json({ message: "Something went wrong", data: null });
+      .json({ message: "Something went wrong" });
   }
 };

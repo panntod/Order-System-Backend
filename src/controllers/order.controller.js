@@ -33,7 +33,6 @@ exports.addOrder = async (req, res) => {
       .status(201)
       .json({ status: true, data: data, message: "Order List has created" });
   } catch (error) {
-    console.error("Error adding order:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -48,7 +47,6 @@ exports.getAllOrders = async (_, res) => {
 
     res.status(200).json({success: true, data: data, message: "Order list has retrieved"});
   } catch (error) {
-    console.error('Error fetching orders:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
