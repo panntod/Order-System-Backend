@@ -7,7 +7,7 @@ const authController = require("../controllers/auth.controller");
 route.post("/auth", authController.authentication);
 
 const adminController = require("../controllers/admin.controller");
-route.get("/get/getAll", authorization, adminController.getAllAdmin);
+route.get("/get/", authorization, adminController.getAllAdmin);
 route.get("/:id", authorization, adminController.findAdmin);
 route.post("/", adminController.addAdmin);
 route.put("/:id", authorization, adminController.updateAdmin);

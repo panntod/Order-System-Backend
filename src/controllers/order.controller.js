@@ -33,7 +33,7 @@ exports.addOrder = async (req, res) => {
       .status(201)
       .json({ status: true, data: data, message: "Order List has created" });
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -42,12 +42,18 @@ exports.getAllOrders = async (_, res) => {
   try {
     const data = await prisma.order_List.findMany({
       include: {
-        order_details: true
-      }
+        order_details: {
+          include: {
+            Food: true,
+          },
+        },
+      },
     });
 
-    res.status(200).json({success: true, data: data, message: "Order list has retrieved"});
+    res
+      .status(200)
+      .json({ success: true, data: data, message: "Order list has retrieved" });
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: "Internal server error" });
   }
 };

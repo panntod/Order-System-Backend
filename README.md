@@ -9,7 +9,7 @@ npm init -y
 Installation dependencies
 
 ```
-npm i -S prisma express multer body-parser bcrypt nodemon jsonwebtoken
+npm i -S prisma express multer body-parser bcrypt nodemon jsonwebtoken cors
 ```
 
 Initialitation Prisma
@@ -34,24 +34,24 @@ Base Url: `localhost:8000`
 
 - Admin : `/admin/`
 
-| Method | Url         | Description                                      |
-| ------ | ----------- | ------------------------------------------------ |
-| GET    | /get/getAll | Digunakan untuk mendapatkan semua data admin     |
-| GET    | /:id        | Digunakan untuk mendapatkan data admin sesuai id |
-| POST   | /           | Digunakan untuk membuat data admin               |
-| POST   | /auth       | Digunakan untuk login                            |
-| PUT    | /:id        | Digunakan untuk update data admin                |
-| DELETE | /:id        | Digunakan untuk menghapus data admin             |
+| Method | Url   | Description                                      |
+| ------ | ----- | ------------------------------------------------ |
+| GET    | /get/ | Digunakan untuk mendapatkan semua data admin     |
+| GET    | /:id  | Digunakan untuk mendapatkan data admin sesuai id |
+| POST   | /     | Digunakan untuk membuat data admin               |
+| POST   | /auth | Digunakan untuk login                            |
+| PUT    | /:id  | Digunakan untuk update data admin                |
+| DELETE | /:id  | Digunakan untuk menghapus data admin             |
 
 - Food : `/food/`
 
-| Method | Url         | Description                                        |
-| ------ | ----------- | -------------------------------------------------- |
-| GET    | /get/getAll | Digunakan untuk mendapatkan semua data makanan     |
-| GET    | /:id        | Digunakan untuk mendapatkan data makanan sesuai id |
-| POST   | /           | Digunakan untuk membuat data makanan               |
-| PUT    | /:id        | Digunakan untuk update data makanan                |
-| DELETE | /:id        | Digunakan untuk menghapus data makanan             |
+| Method | Url   | Description                                        |
+| ------ | ----- | -------------------------------------------------- |
+| GET    | /get/ | Digunakan untuk mendapatkan semua data makanan     |
+| GET    | /:id  | Digunakan untuk mendapatkan data makanan sesuai id |
+| POST   | /     | Digunakan untuk membuat data makanan               |
+| PUT    | /:id  | Digunakan untuk update data makanan                |
+| DELETE | /:id  | Digunakan untuk menghapus data makanan             |
 
 - Order : `/order/`
 
