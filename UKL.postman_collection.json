@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "06c40edf-2ba4-43ef-b03c-255ae4cc499d",
+		"name": "UKL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29293589"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "New request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/admin/get/"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/admin/1"
+					},
+					"response": []
+				},
+				{
+					"name": "New request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"pandhu\",\r\n    \"email\": \"admin@smktelkom-mlg.sch.id\",\r\n    \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/admin/"
+					},
+					"response": []
+				},
+				{
+					"name": "New request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@smktelkom-mlg.sch.id\",\r\n    \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/admin/auth"
+					},
+					"response": []
+				},
+				{
+					"name": "New request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"email\": \"pandhu@gmail.com\",\r\n      \"password\": \"awokawok\",\r\n      \"name\": \"Pandhu Arya\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/admin/1"
+					},
+					"response": []
+				},
+				{
+					"name": "New request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/user/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Food",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/food/get/"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/food/2"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBzbWt0ZWxrb20tbWxnLnNjaC5pZCIsImNyZWF0ZWRBdCI6IjIwMjQtMDUtMDdUMDQ6NDI6NDcuNzQ0WiIsInVwZGF0ZWRBdCI6IjIwMjQtMDUtMDdUMDQ6NDI6NDcuNzQ0WiIsImlhdCI6MTcxNTA1NzAzMSwiZXhwIjoxNzE1MTQzNDMxfQ.cCmS-UJYt-SyXjTiXijMTUUZEzJNPJOjge5cx3cVMLo"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Alpucado",
+									"type": "text"
+								},
+								{
+									"key": "spicy_level",
+									"value": "Not Spicy",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "24000",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "C:\\Users\\pandh\\Downloads\\unauthorized-image.png"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/food/"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Kentucky",
+									"type": "text"
+								},
+								{
+									"key": "spicy_level",
+									"value": "Not Spicy",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "12000",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/pandh/Downloads/unauthorized-image.png"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/food/2"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/food/4"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF9hZG1pbiI6MSwibmFtZSI6InBhbmRodSIsImVtYWlsIjoiYWRtaW5Ac21rdGVsa29tLW1sZy5zY2guaWQiLCJpYXQiOjE3MTUwNDIxOTN9.R583_f2o8J30U2Nv_WRCaY_O-nZVA0zVB5wUAFG74Z0"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_name\": \"Allohuakbar\",\r\n    \"table_number\": \"2\",\r\n    \"order_date\": \"2024-05-01\",\r\n    \"order_detail\": [\r\n        {\r\n            \"food_id\": 3,\r\n            \"price\": 20000,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"food_id\": 1,\r\n            \"price\": 10000,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/order/"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF9hZG1pbiI6MSwibmFtZSI6InBhbmRodSIsImVtYWlsIjoiYWRtaW5Ac21rdGVsa29tLW1sZy5zY2guaWQiLCJpYXQiOjE3MTUwNDIxOTN9.R583_f2o8J30U2Nv_WRCaY_O-nZVA0zVB5wUAFG74Z0"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/order/"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{AccessToken}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
